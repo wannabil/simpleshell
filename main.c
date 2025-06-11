@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
 	
 	while(1) /* infinite loop of "$ " */
 	{
-		printf("$ ");
+		printf("%% ");
 		fflush(stdout); /* clear out buffer */
 		read = getline(&line, &len, stdin); /* read input from user */
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		}
 	
 		else {
-			printf("$simpleshell: command not found: %s\n", line);
+			printf("simpleshell: command not found: %s\n", line);
 		}
 	}
 }
