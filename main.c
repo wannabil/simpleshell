@@ -7,20 +7,18 @@ int main(int argc, char *argv[]) {
 	size_t len = 0;
 	ssize_t read;
 	
-	while(1) /* infinite loop of "$ " */
-	{
+	repeat:
+	while(1) /* infinite loop of "$ " */ {
 		printf("%% ");
 		fflush(stdout); /* clear out buffer */
 		read = getline(&line, &len, stdin); /* read input from user */
 
-		line[strlen(line) - 1] = '\0'; /* clean line to trim newline */
 		/* type 'exit' and [ENTER] to exit */
-		if (strcmp(line, "exit") == 0)
-		{
+		if (strcmp(line, "exit\n") == 0) {
 			exit(EXIT_SUCCESS);
-		}
-	
-		else {
+		} else if (strcmp(line, "\n") == 0) {
+			goto repeat; /* loop back the file */
+		} else {
 			printf("simpleshell: command not found: %s\n", line);
 		}
 	}
