@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		}
 	
 		else {
-			printf("$ you stuck here :(, CTRL-C to escape\n");
+			printf("$ simpleshell: command not found: %s\n", line);
 		}
 	}
 }
