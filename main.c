@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 		} else if (strcmp(line, "\n") == 0) {
 			goto repeat; /* loop back the file */
 		} else {
-			printf("simpleshell: command not found: %s\n", line);
+			printf("simpleshell: command not found: %s", line);
 		}
 	}
 }
