@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
 		}
 	
 		else {
-			printf("$ simpleshell: command not found: %s\n", line);
+			printf("$simpleshell: command not found: %s\n", line);
 		}
 	}
 }
