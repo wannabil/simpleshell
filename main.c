@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 			while (token != NULL) {
 				tokens[count] = token;
 				count += 1;
-				token = strtok(NULL, " ");
+				token = strtok(NULL, " "); // going to next token
 			}
 				printf("command : %s\n", tokens[0]);
 				for (int i = 1; i < count; i++)
