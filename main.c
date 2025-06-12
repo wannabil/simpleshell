@@ -6,20 +6,32 @@ int main(int argc, char *argv[]) {
 	char *line = NULL;
 	size_t len = 0;
 	ssize_t read;
-	
-	repeat:
+	char *tokens[10]; /* token placeholder */
+
 	while(1) /* infinite loop of "$ " */ {
 		printf("%% ");
 		fflush(stdout); /* clear out buffer */
 		read = getline(&line, &len, stdin); /* read input from user */
-
-		/* type 'exit' and [ENTER] to exit */
-		if (strcmp(line, "exit\n") == 0) {
+		if (line[strlen(line) - 1] == '\n') {
+			line[strlen(line) - 1] = '\0';
+		} // remove newline
+		if (strcmp(line, "exit") == 0) {
 			exit(EXIT_SUCCESS);
-		} else if (strcmp(line, "\n") == 0) {
-			goto repeat; /* loop back the file */
+		} else if (strcmp(line, "") == 0) {
+			continue;
 		} else {
-			printf("simpleshell: command not found: %s", line);
+			int count = 0;
+			char *token = strtok(line, " "); /* first token */
+			while (token != NULL) {
+				tokens[count] = token;
+				count += 1;
+				token = strtok(NULL, " ");
+			}
+				printf("command : %s\n", tokens[0]);
+				for (int i = 1; i < count; i++)
+				{
+					printf("arg%d: %s\n", i, tokens[i]);
+				}
+			}
 		}
-	}
 }
