@@ -17,3 +17,4 @@
 - [ ] echo $HOME prints home directory
 - [ ] Ctrl + D
 - [ ] ...
+- .
